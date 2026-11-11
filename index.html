@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELY 食刻 · 在线外卖点餐 | 现炒锅气 12 分钟到家</title>
+  <meta name="description" content="ELY 食刻在线外卖点餐平台，明火现炒、后厨可视，热菜 12 分钟送到家。">
+
+  <!-- Bootstrap 5.3.3 样式库（只使用样式，不使用其 JS） -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Font Awesome 6.7.2 图标库 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+  <!-- 站点自定义样式 -->
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+
+<body>
+
+  <!-- ==================================================================
+       区块 A：顶部导航条
+       布局：左侧 LOGO · 中间 搜索框 · 右侧 注册 / 登录
+       ================================================================== -->
+  <header class="site-header" id="top">
+    <div class="site-shell header-inner">
+
+      <!-- A-1 品牌 LOGO：图标 + 文字 -->
+      <a class="brand" href="#top" aria-label="ELY 食刻首页">
+        <span class="brand__mark"><i class="fa-solid fa-bowl-food"></i></span>
+        <span class="brand__text">
+          <strong class="brand__name">ELY 食刻</strong>
+          <small class="brand__slogan">现炒锅气 · 12 分钟到家</small>
+        </span>
+      </a>
+
+      <!-- A-2 中间查询：地址前缀 + 输入框 + 搜索按钮 -->
+      <form class="search" role="search" action="#hot-dishes">
+        <i class="fa-solid fa-location-dot search__pin" aria-hidden="true"></i>
+        <input class="search__input" type="search" name="q" placeholder="搜索菜品、店铺，如「黑椒牛仔骨」" aria-label="搜索菜品">
+        <button class="search__btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <span>搜索</span>
+        </button>
+      </form>
+
+      <!-- A-3 右侧：注册 + 登录 -->
+      <div class="auth">
+        <a class="btn btn-ghost auth__register" href="#join">
+          <i class="fa-regular fa-user" aria-hidden="true"></i>注册
+        </a>
+        <a class="btn btn-chili auth__login" href="#join">
+          <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>登录
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================================================================
+       区块 B：主要菜单
+       说明：菜单与顶部共用 .site-shell 容器，因此左边缘与 LOGO 对齐、
+             右边缘与「登录」按钮对齐
+       响应式：菜单始终横向直接展示，窄屏自动换行，不折叠、不隐藏
+       ================================================================== -->
+  <nav class="main-nav" aria-label="主导航">
+    <div class="site-shell nav-inner">
+
+      <!-- B-1 菜单列表：餐厅首页 / 菜品大全 / 厨师团队 / 餐厅环境 / 餐厅公告 / 留言反馈 / 关于我们 -->
+      <ul class="nav-list">
+        <li class="nav-list__item">
+          <a class="menu-link is-active" href="#top"><i class="fa-solid fa-house" aria-hidden="true"></i>餐厅首页</a>
+        </li>
+        <li class="nav-list__item">
+          <a class="menu-link" href="#hot-dishes"><i class="fa-solid fa-utensils" aria-hidden="true"></i>菜品大全</a>
+        </li>
+        <li class="nav-list__item">
+          <a class="menu-link" href="#chefs"><i class="fa-solid fa-users" aria-hidden="true"></i>厨师团队</a>
+        </li>
+        <li class="nav-list__item">
+          <a class="menu-link" href="#gallery"><i class="fa-solid fa-image" aria-hidden="true"></i>餐厅环境</a>
+        </li>
+        <li class="nav-list__item">
+          <a class="menu-link" href="#news"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>餐厅公告</a>
+        </li>
+        <li class="nav-list__item">
+          <a class="menu-link" href="#feedback"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>留言反馈</a>
+        </li>
+        <li class="nav-list__item">
+          <a class="menu-link" href="#about"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>关于我们</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- ==================================================================
+       区块 C：首屏 Banner
+       动态效果：双图淡入淡出轮播 + 缓慢推镜（全部由 CSS 关键帧完成）
+       ================================================================== -->
+  <section class="hero">
+    <!-- C-1 轮播图与遮罩层 -->
+    <div class="hero__media" aria-hidden="true">
+      <div class="hero__slide hero__slide--one"></div>
+      <div class="hero__slide hero__slide--two"></div>
+      <div class="hero__veil"></div>
+    </div>
+
+    <!-- C-2 文案主体 -->
+    <div class="site-shell hero__content">
+      <span class="hero__eyebrow">
+        <i class="fa-solid fa-pepper-hot" aria-hidden="true"></i>
+        2027 春季新菜单 · 明火现炒
+      </span>
+
+      <h1 class="hero__title">
+        锅气 <span class="hero__highlight">12 分钟</span> 到家<br>
+        热菜送到还冒烟
+      </h1>
+
+      <p class="hero__desc">
+        6 位师傅守在灶台前，单锅单炒、拒绝预制复热。下单后骑手在门口等锅，
+        从出锅到敲门，平均只要 12 分钟。
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn-chili btn-lg hero__cta" href="#hot-dishes">
+          立即点餐 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="btn btn-outline-light btn-lg hero__cta--ghost" href="#categories">
+          <i class="fa-solid fa-utensils" aria-hidden="true"></i> 浏览菜单
+        </a>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <strong>99.2<span>%</span></strong>
+          <small>好评率</small>
+        </div>
+        <div class="hero__stat">
+          <strong>28<span>min</span></strong>
+          <small>平均送达</small>
+        </div>
+        <div class="hero__stat">
+          <strong>60<span>+</span></strong>
+          <small>直营门店</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- C-3 浮动订单卡片：上线提示动画 -->
+    <div class="hero__float">
+      <div class="hero__float-head">
+        <span class="hero__float-dot"></span>
+        <span>骑手已接单</span>
+        <i class="fa-solid fa-motorcycle" aria-hidden="true"></i>
+      </div>
+      <p class="hero__float-line">订单 #EL20270301 · 招牌红烧肉 ×2</p>
+      <p class="hero__float-eta">预计 <strong>2027-03-01 12:30</strong> 送达</p>
+      <div class="hero__float-bar"><span></span></div>
+    </div>
+
+    <!-- C-4 下滑提示 -->
+    <a class="hero__scroll" href="#categories" aria-label="向下浏览">
+      <span>向下滑动</span>
+      <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+    </a>
+  </section>
+
+  <!-- ==================================================================
+       区块 D：服务保障条（上浮叠在 Banner 底部，避免留白）
+       ================================================================== -->
+  <section class="promise">
+    <div class="site-shell">
+      <div class="promise__box">
+
+        <div class="promise__item">
+          <span class="promise__icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span>
+          <div>
+            <strong>12 分钟极速送</strong>
+            <small>超时赔付，延误必补</small>
+          </div>
+        </div>
+
+        <div class="promise__item">
+          <span class="promise__icon"><i class="fa-solid fa-fire" aria-hidden="true"></i></span>
+          <div>
+            <strong>明火现炒不预制</strong>
+            <small>单锅单炒，出锅即封</small>
+          </div>
+        </div>
+
+        <div class="promise__item">
+          <span class="promise__icon"><i class="fa-solid fa-leaf" aria-hidden="true"></i></span>
+          <div>
+            <strong>当日鲜采食材</strong>
+            <small>05:30 到货，售罄不隔夜</small>
+          </div>
+        </div>
+
+        <div class="promise__item">
+          <span class="promise__icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+          <div>
+            <strong>食安全程可视</strong>
+            <small>后厨直播，温控可查</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 E：分类点餐
+       动态效果：悬停放大 + 旋转光圈 + 文案上浮
+       ================================================================== -->
+  <section class="section categories" id="categories">
+    <div class="site-shell">
+
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow"><i class="fa-solid fa-border-all" aria-hidden="true"></i>CATEGORIES</span>
+          <h2 class="section-title">今天想吃点什么</h2>
+          <p class="section-sub">6 大品类 · 301 道在售菜品，2027 春季菜单已同步</p>
+        </div>
+        <a class="section-more" href="#hot-dishes">全部菜单 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="row g-3 g-lg-4">
+
+        <div class="col-4 col-md-3 col-lg-2">
+          <a class="cat-card reveal" href="#hot-dishes">
+            <span class="cat-card__ring">
+              <img src="images/dish-braised-pork.jpg" alt="荤菜" loading="lazy">
+            </span>
+            <strong class="cat-card__name">荤菜硬菜</strong>
+            <span class="cat-card__count">86 道</span>
+          </a>
+        </div>
+
+        <div class="col-4 col-md-3 col-lg-2">
+          <a class="cat-card reveal" href="#hot-dishes">
+            <span class="cat-card__ring">
+              <img src="images/dish-greens.jpg" alt="素菜" loading="lazy">
+            </span>
+            <strong class="cat-card__name">时令素菜</strong>
+            <span class="cat-card__count">64 道</span>
+          </a>
+        </div>
+
+        <div class="col-4 col-md-3 col-lg-2">
+          <a class="cat-card reveal" href="#hot-dishes">
+            <span class="cat-card__ring">
+              <img src="images/dish-rice.jpg" alt="主食点心" loading="lazy">
+            </span>
+            <strong class="cat-card__name">主食点心</strong>
+            <span class="cat-card__count">42 道</span>
+          </a>
+        </div>
+
+        <div class="col-4 col-md-3 col-lg-2">
+          <a class="cat-card reveal" href="#hot-dishes">
+            <span class="cat-card__ring">
+              <img src="images/dish-cold-salad.jpg" alt="凉菜" loading="lazy">
+            </span>
+            <strong class="cat-card__name">开胃凉菜</strong>
+            <span class="cat-card__count">28 道</span>
+          </a>
+        </div>
+
+        <div class="col-4 col-md-3 col-lg-2">
+          <a class="cat-card reveal" href="#hot-dishes">
+            <span class="cat-card__ring">
+              <img src="images/dish-signature.jpg" alt="特色菜" loading="lazy">
+            </span>
+            <strong class="cat-card__name">招牌特色</strong>
+            <span class="cat-card__count">35 道</span>
+          </a>
+        </div>
+
+        <div class="col-4 col-md-3 col-lg-2">
+          <a class="cat-card reveal" href="#hot-dishes">
+            <span class="cat-card__ring">
+              <img src="images/dish-cola.jpg" alt="酒水饮料" loading="lazy">
+            </span>
+            <strong class="cat-card__name">酒水饮料</strong>
+            <span class="cat-card__count">46 道</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 F：关于我们 + 餐厅公告（大区块，左右两栏）
+       左侧：餐厅简介 + 门店数据；右侧：最新公告资讯
+       动态效果：面板进场上浮、公告条目悬停右移、日期与箭头高亮
+       ================================================================== -->
+  <section class="section about" id="about">
+    <div class="site-shell">
+      <div class="about__box">
+
+        <!-- F-1 左栏：餐厅简单介绍 -->
+        <div class="about__intro">
+          <span class="eyebrow"><i class="fa-solid fa-store" aria-hidden="true"></i>ABOUT ELY</span>
+          <h2 class="section-title">从一口铁锅开始<br>把锅气送到家</h2>
+          <p class="about__desc">
+            ELY 食刻起步于 2027 年春天，从 12 平米的街边小灶做起，如今开出 60 家直营门店。
+            我们只坚持一件事：菜要现炒、锅要烧透、出锅就装盒。
+          </p>
+          <p class="about__desc">
+            6 位师傅平均灶龄 12 年，每日 05:30 接收鲜采食材，单锅单炒、拒绝料理包。
+            你点的每一道菜，都来自当天的灶台。
+          </p>
+
+          <ul class="about__points">
+            <li><i class="fa-solid fa-fire-burner" aria-hidden="true"></i>明火现炒 · 平均 6 分钟出锅</li>
+            <li><i class="fa-solid fa-temperature-half" aria-hidden="true"></i>65℃ 保温配送 · 到家还冒烟</li>
+            <li><i class="fa-solid fa-seedling" aria-hidden="true"></i>当日鲜采 · 售罄不隔夜</li>
+          </ul>
+
+          <div class="about__stats">
+            <div class="about__stat">
+              <strong>60<span>家</span></strong>
+              <small>直营门店</small>
+            </div>
+            <div class="about__stat">
+              <strong>6<span>位</span></strong>
+              <small>灶台师傅</small>
+            </div>
+            <div class="about__stat">
+              <strong>12<span>年</span></strong>
+              <small>平均灶龄</small>
+            </div>
+          </div>
+
+          <a class="btn btn-chili about__btn" href="#chefs">
+            认识我们的师傅 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <!-- F-2 右栏：最新公告资讯（菜单「餐厅公告」的锚点） -->
+        <div class="about__notice" id="news">
+          <div class="about__notice-head">
+            <div>
+              <span class="eyebrow"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>NOTICE</span>
+              <h3 class="about__notice-title">餐厅最新公告</h3>
+            </div>
+            <span class="about__notice-more">2027 · 持续更新</span>
+          </div>
+
+          <ul class="notice-list">
+            <li class="notice-item">
+              <span class="notice-item__date">2027-04-18</span>
+              <span class="notice-item__tag">重磅</span>
+              <div class="notice-item__body">
+                <strong>中央厨房正式启用</strong>
+                <p>全程 4℃ 冷链，覆盖 60 家门店的鲜切与配送。</p>
+              </div>
+              <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+            </li>
+
+            <li class="notice-item">
+              <span class="notice-item__date">2027-03-28</span>
+              <span class="notice-item__tag notice-item__tag--gold">上新</span>
+              <div class="notice-item__body">
+                <strong>2027 春季菜单上线</strong>
+                <p>香椿拌豆腐、油焖春笋等 12 道时令新菜同步开售。</p>
+              </div>
+              <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+            </li>
+
+            <li class="notice-item">
+              <span class="notice-item__date">2027-03-01</span>
+              <span class="notice-item__tag notice-item__tag--leaf">福利</span>
+              <div class="notice-item__body">
+                <strong>新客首单立减 20 元</strong>
+                <p>注册即领无门槛券，活动持续至 2027-03-31。</p>
+              </div>
+              <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+            </li>
+
+            <li class="notice-item">
+              <span class="notice-item__date">2027-02-10</span>
+              <span class="notice-item__tag">门店</span>
+              <div class="notice-item__body">
+                <strong>营业时间调整为 10:00 - 22:00</strong>
+                <p>静安、徐汇、黄浦三家门店先行执行，其余门店陆续跟进。</p>
+              </div>
+              <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 G：今日热销菜品
+       动态效果：卡片上浮 + 图片缓推 + 加购按钮旋转发光
+       ================================================================== -->
+  <section class="section dishes" id="hot-dishes">
+    <div class="site-shell">
+
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow"><i class="fa-solid fa-fire" aria-hidden="true"></i>HOT SALES</span>
+          <h2 class="section-title">点单率最高的 8 道</h2>
+          <p class="section-sub">已按 2027 年 1—3 月销量排序，售完即下架</p>
+        </div>
+        <a class="section-more" href="#categories">换个品类 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="row row-cols-1 row-cols-sm-2 g-4">
+
+        <!-- G-1 菜品卡：黑椒牛仔骨 -->
+        <div class="col">
+          <article class="dish-card reveal">
+            <div class="dish-card__media">
+              <img src="images/dish-signature.jpg" alt="黑椒牛仔骨" loading="lazy">
+              <span class="dish-card__tag">热销 No.1</span>
+              <button class="dish-card__fav" type="button" aria-label="收藏">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dish-card__body">
+              <h3 class="dish-card__name">黑椒牛仔骨</h3>
+              <p class="dish-card__desc">现煎牛肋排，黑椒酱汁锁住肉汁</p>
+              <div class="dish-card__meta">
+                <span class="dish-card__rate"><i class="fa-solid fa-star" aria-hidden="true"></i>4.9</span>
+                <span class="dish-card__sold">月售 1200+</span>
+              </div>
+              <div class="dish-card__foot">
+                <span class="dish-card__price"><em>¥</em>68<small>起</small></span>
+                <button class="dish-card__add" type="button" aria-label="加入购物车">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- G-2 菜品卡：古法红烧肉 -->
+        <div class="col">
+          <article class="dish-card reveal">
+            <div class="dish-card__media">
+              <img src="images/dish-braised-pork.jpg" alt="古法红烧肉" loading="lazy">
+              <span class="dish-card__tag dish-card__tag--gold">镇店招牌</span>
+              <button class="dish-card__fav" type="button" aria-label="收藏">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dish-card__body">
+              <h3 class="dish-card__name">古法红烧肉</h3>
+              <p class="dish-card__desc">慢炖三小时，肥而不腻入口即化</p>
+              <div class="dish-card__meta">
+                <span class="dish-card__rate"><i class="fa-solid fa-star" aria-hidden="true"></i>4.8</span>
+                <span class="dish-card__sold">月售 986</span>
+              </div>
+              <div class="dish-card__foot">
+                <span class="dish-card__price"><em>¥</em>46<small>起</small></span>
+                <button class="dish-card__add" type="button" aria-label="加入购物车">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- G-3 菜品卡：蒜蓉时蔬 -->
+        <div class="col">
+          <article class="dish-card reveal">
+            <div class="dish-card__media">
+              <img src="images/dish-greens.jpg" alt="蒜蓉时蔬" loading="lazy">
+              <span class="dish-card__tag dish-card__tag--leaf">低卡</span>
+              <button class="dish-card__fav" type="button" aria-label="收藏">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dish-card__body">
+              <h3 class="dish-card__name">蒜蓉时蔬</h3>
+              <p class="dish-card__desc">当日鲜蔬，猛火快炒保住脆嫩</p>
+              <div class="dish-card__meta">
+                <span class="dish-card__rate"><i class="fa-solid fa-star" aria-hidden="true"></i>4.7</span>
+                <span class="dish-card__sold">月售 842</span>
+              </div>
+              <div class="dish-card__foot">
+                <span class="dish-card__price"><em>¥</em>18<small>起</small></span>
+                <button class="dish-card__add" type="button" aria-label="加入购物车">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- G-4 菜品卡：老坛拌菠菜 -->
+        <div class="col">
+          <article class="dish-card reveal">
+            <div class="dish-card__media">
+              <img src="images/dish-cold-salad.jpg" alt="老坛拌菠菜" loading="lazy">
+              <span class="dish-card__tag">开胃</span>
+              <button class="dish-card__fav" type="button" aria-label="收藏">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dish-card__body">
+              <h3 class="dish-card__name">老坛拌菠菜</h3>
+              <p class="dish-card__desc">花生酥脆，酸香爽口，解腻首选</p>
+              <div class="dish-card__meta">
+                <span class="dish-card__rate"><i class="fa-solid fa-star" aria-hidden="true"></i>4.9</span>
+                <span class="dish-card__sold">月售 733</span>
+              </div>
+              <div class="dish-card__foot">
+                <span class="dish-card__price"><em>¥</em>16<small>起</small></span>
+                <button class="dish-card__add" type="button" aria-label="加入购物车">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- G-5 菜品卡：手作黄油酥饼 -->
+        <div class="col">
+          <article class="dish-card reveal">
+            <div class="dish-card__media">
+              <img src="images/dish-butter-cookie.jpg" alt="手作黄油酥饼" loading="lazy">
+              <span class="dish-card__tag dish-card__tag--gold">新品</span>
+              <button class="dish-card__fav" type="button" aria-label="收藏">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dish-card__body">
+              <h3 class="dish-card__name">手作黄油酥饼</h3>
+              <p class="dish-card__desc">层层酥皮，新西兰黄油香而不腻</p>
+              <div class="dish-card__meta">
+                <span class="dish-card__rate"><i class="fa-solid fa-star" aria-hidden="true"></i>4.8</span>
+                <span class="dish-card__sold">月售 690</span>
+              </div>
+              <div class="dish-card__foot">
+                <span class="dish-card__price"><em>¥</em>12<small>起</small></span>
+                <button class="dish-card__add" type="button" aria-label="加入购物车">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- G-6 菜品卡：五常香米饭 -->
+        <div class="col">
+          <article class="dish-card reveal">
+            <div class="dish-card__media">
+              <img src="images/dish-rice.jpg" alt="五常香米饭" loading="lazy">
+              <span class="dish-card__tag">每日现蒸</span>
+              <button class="dish-card__fav" type="button" aria-label="收藏">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dish-card__body">
+              <h3 class="dish-card__name">五常香米饭</h3>
+              <p class="dish-card__desc">颗粒饱满，米香清甜，独立保温盒</p>
+              <div class="dish-card__meta">
+                <span class="dish-card__rate"><i class="fa-solid fa-star" aria-hidden="true"></i>5.0</span>
+                <span class="dish-card__sold">月售 2100+</span>
+              </div>
+              <div class="dish-card__foot">
+                <span class="dish-card__price"><em>¥</em>5<small>起</small></span>
+                <button class="dish-card__add" type="button" aria-label="加入购物车">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- G-7 菜品卡：冰镇气泡可乐 -->
+        <div class="col">
+          <article class="dish-card reveal">
+            <div class="dish-card__media">
+              <img src="images/dish-cola.jpg" alt="冰镇气泡可乐" loading="lazy">
+              <span class="dish-card__tag dish-card__tag--leaf">冰爽</span>
+              <button class="dish-card__fav" type="button" aria-label="收藏">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dish-card__body">
+              <h3 class="dish-card__name">冰镇气泡可乐</h3>
+              <p class="dish-card__desc">2℃ 冰镇出库，配热菜最解辣</p>
+              <div class="dish-card__meta">
+                <span class="dish-card__rate"><i class="fa-solid fa-star" aria-hidden="true"></i>4.9</span>
+                <span class="dish-card__sold">月售 1560+</span>
+              </div>
+              <div class="dish-card__foot">
+                <span class="dish-card__price"><em>¥</em>6<small>起</small></span>
+                <button class="dish-card__add" type="button" aria-label="加入购物车">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- G-8 菜品卡：卤味鸭掌拼盘 -->
+        <div class="col">
+          <article class="dish-card reveal">
+            <div class="dish-card__media">
+              <img src="images/dish-duck-feet.jpg" alt="卤味鸭掌拼盘" loading="lazy">
+              <span class="dish-card__tag">下酒菜</span>
+              <button class="dish-card__fav" type="button" aria-label="收藏">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="dish-card__body">
+              <h3 class="dish-card__name">卤味鸭掌拼盘</h3>
+              <p class="dish-card__desc">胶质软糯，卤香入骨，越嚼越香</p>
+              <div class="dish-card__meta">
+                <span class="dish-card__rate"><i class="fa-solid fa-star" aria-hidden="true"></i>4.7</span>
+                <span class="dish-card__sold">月售 518</span>
+              </div>
+              <div class="dish-card__foot">
+                <span class="dish-card__price"><em>¥</em>38<small>起</small></span>
+                <button class="dish-card__add" type="button" aria-label="加入购物车">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 H：后厨直播（深色背景，形成节奏对比）
+       动态效果：图片缓慢推镜 + 呼吸光晕 + 播放按钮脉冲
+       ================================================================== -->
+  <section class="section kitchen" id="kitchen">
+    <div class="site-shell">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-5">
+          <span class="eyebrow eyebrow--light"><i class="fa-solid fa-kitchen-set" aria-hidden="true"></i>KITCHEN</span>
+          <h2 class="section-title section-title--light">明火现炒<br>后厨全程可视</h2>
+          <p class="kitchen__desc">
+            从洗切到出锅，每一口锅都在镜头下。你能看到食材下锅的瞬间，
+            也能看到封装前最后一勺汤汁。
+          </p>
+
+          <ul class="kitchen__list">
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i>每日 05:30 到货的鲜蔬，当日售罄不隔夜</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i>单锅单炒，拒绝预制复热与料理包</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i>2027-04-18 启用的中央厨房，全程 4℃ 冷链</li>
+          </ul>
+
+          <a class="btn btn-gold kitchen__btn" href="#gallery">
+            <i class="fa-solid fa-circle-play" aria-hidden="true"></i> 看看后厨
+          </a>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="kitchen__visual">
+            <img src="images/kitchen-view.jpg" alt="ELY 食刻透明厨房" loading="lazy">
+            <span class="kitchen__live"><span class="kitchen__live-dot"></span>后厨直播中</span>
+            <span class="kitchen__play"><i class="fa-solid fa-play" aria-hidden="true"></i></span>
+            <div class="kitchen__badge">
+              <strong>4℃</strong>
+              <small>冷链恒温</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- H-1 下单流程（虚线流光动画） -->
+      <div class="steps">
+        <div class="steps__item">
+          <span class="steps__num">01</span>
+          <span class="steps__icon"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i></span>
+          <strong>选菜下单</strong>
+          <small>2027 春季菜单同步</small>
+        </div>
+        <div class="steps__item">
+          <span class="steps__num">02</span>
+          <span class="steps__icon"><i class="fa-solid fa-bell-concierge" aria-hidden="true"></i></span>
+          <strong>门店接单</strong>
+          <small>平均 40 秒响应</small>
+        </div>
+        <div class="steps__item">
+          <span class="steps__num">03</span>
+          <span class="steps__icon"><i class="fa-solid fa-fire-burner" aria-hidden="true"></i></span>
+          <strong>明火现炒</strong>
+          <small>单锅单炒 6 分钟</small>
+        </div>
+        <div class="steps__item">
+          <span class="steps__num">04</span>
+          <span class="steps__icon"><i class="fa-solid fa-motorcycle" aria-hidden="true"></i></span>
+          <strong>骑手直达</strong>
+          <small>保温箱封装配送</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 I：厨师团队
+       动态效果：图片由灰转彩 + 缓慢放大 + 底部信息条上滑
+       ================================================================== -->
+  <section class="section chefs" id="chefs">
+    <div class="site-shell">
+
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow"><i class="fa-solid fa-user-chef" aria-hidden="true"></i>OUR CHEFS</span>
+          <h2 class="section-title">把灶台交给 20 年老手</h2>
+          <p class="section-sub">6 位师傅，平均 12 年灶龄，2027 季度考核全部通过</p>
+        </div>
+        <a class="section-more" href="#reviews">看看评价 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="row row-cols-2 g-4 g-lg-5">
+
+        <div class="col">
+          <article class="chef-card reveal">
+            <div class="chef-card__photo">
+              <img src="images/chef-1.webp" alt="行政总厨 陈师傅" loading="lazy">
+              <span class="chef-card__award"><i class="fa-solid fa-medal" aria-hidden="true"></i>2027 春</span>
+            </div>
+            <div class="chef-card__info">
+              <span class="chef-card__post">行政总厨 · 粤菜</span>
+              <h3 class="chef-card__name">陈 志 明</h3>
+              <p class="chef-card__years">灶龄 20 年 · 掌勺 12 万份</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="chef-card reveal">
+            <div class="chef-card__photo">
+              <img src="images/chef-2.jpg" alt="川菜主厨 林师傅" loading="lazy">
+              <span class="chef-card__award"><i class="fa-solid fa-pepper-hot" aria-hidden="true"></i>辣度担当</span>
+            </div>
+            <div class="chef-card__info">
+              <span class="chef-card__post">川菜主厨 · 热炒</span>
+              <h3 class="chef-card__name">林 子 川</h3>
+              <p class="chef-card__years">灶龄 16 年 · 招牌小炒</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="chef-card reveal">
+            <div class="chef-card__photo">
+              <img src="images/chef-3.jpg" alt="面点主厨 周师傅" loading="lazy">
+              <span class="chef-card__award"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i>手作面点</span>
+            </div>
+            <div class="chef-card__info">
+              <span class="chef-card__post">面点主厨 · 主食</span>
+              <h3 class="chef-card__name">周 若 兰</h3>
+              <p class="chef-card__years">灶龄 14 年 · 每日现蒸</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="chef-card reveal">
+            <div class="chef-card__photo">
+              <img src="images/chef-4.jpg" alt="凉菜总监 苏师傅" loading="lazy" class="chef-img--cover-left">
+              <span class="chef-card__award"><i class="fa-solid fa-seedling" aria-hidden="true"></i>低卡研究</span>
+            </div>
+            <div class="chef-card__info">
+              <span class="chef-card__post">凉菜总监 · 前菜</span>
+              <h3 class="chef-card__name">苏 叶</h3>
+              <p class="chef-card__years">灶龄 11 年 · 私房拌汁</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="chef-card reveal">
+            <div class="chef-card__photo">
+              <img src="images/chef-5.jpg" alt="烧腊主厨 何师傅" loading="lazy" class="chef-img--cover-fill">
+              <span class="chef-card__award"><i class="fa-solid fa-fire" aria-hidden="true"></i>明炉烧腊</span>
+            </div>
+            <div class="chef-card__info">
+              <span class="chef-card__post">烧腊主厨 · 明档</span>
+              <h3 class="chef-card__name">何 家 明</h3>
+              <p class="chef-card__years">灶龄 15 年 · 每日现烧</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="chef-card reveal">
+            <div class="chef-card__photo">
+              <img src="images/chef-6.png" alt="汤品主厨 方师傅" loading="lazy">
+              <span class="chef-card__award"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i>老火靓汤</span>
+            </div>
+            <div class="chef-card__info">
+              <span class="chef-card__post">汤品主厨 · 炖汤</span>
+              <h3 class="chef-card__name">方 雅 琴</h3>
+              <p class="chef-card__years">灶龄 13 年 · 每炉 4 小时</p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 J：食客评价（横向无缝滚动跑马灯，纯 CSS）
+       说明：内容重复两份，保证循环无空白；鼠标悬停暂停
+       ================================================================== -->
+  <section class="section reviews" id="reviews">
+    <div class="site-shell">
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>REVIEWS</span>
+          <h2 class="section-title">12 万条评价里的真心话</h2>
+          <p class="section-sub">综合评分 4.9 / 5.0，2027 年 3 月新增评价 3200+</p>
+        </div>
+        <a class="section-more" href="#join">我也要评价 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <!-- J-1 跑马灯轨道：内容分为两组，循环位移 50% 时不会出现空白 -->
+    <div class="review-marquee">
+      <div class="review-track">
+
+        <!-- 第一组评价卡（6 条） -->
+        <div class="review-group">
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-1.jpg" alt="王小满" loading="lazy">
+            <div>
+              <strong>王 小 满</strong>
+              <small>2027-02-18 · 红烧肉套餐</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p>下单 20 分钟就到了，红烧肉还烫嘴，米饭单独包装这一点特别加分。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-2.jpg" alt="阿 Ken" loading="lazy">
+            <div>
+              <strong>阿 Ken</strong>
+              <small>2027-02-26 · 黑椒牛仔骨</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p>牛仔骨是真的嫩，配上冰镇可乐直接封神，已经回购第 7 次了。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-3.jpg" alt="陈默" loading="lazy">
+            <div>
+              <strong>陈 默</strong>
+              <small>2027-03-03 · 深夜加班餐</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+          </div>
+          <p>加班到十一点还能点到热菜，骑手小哥一路小跑，汤一滴没洒。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-4.jpg" alt="林女士" loading="lazy">
+            <div>
+              <strong>林 女 士</strong>
+              <small>2027-03-11 · 手作黄油酥饼</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p>酥饼给娃当早餐刚好，黄油味很足但不腻，复烤两分钟像刚出炉。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-5.jpg" alt="赵一鸣" loading="lazy">
+            <div>
+              <strong>赵 一 鸣</strong>
+              <small>2027-03-19 · 蒜蓉时蔬</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p>后厨直播能看到炒菜全过程，油盐用量都看得见，吃着特别放心。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-6.jpg" alt="周小满" loading="lazy">
+            <div>
+              <strong>周 小 满</strong>
+              <small>2027-03-28 · 低卡轻食</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+          </div>
+          <p>素菜火候刚好，没有多余油腻感，减脂期也能安心点一桌。</p>
+        </article>
+
+        </div>
+        <!-- 第一组结束 -->
+
+        <!-- 第二组：与第一组内容完全一致，用于无缝循环 -->
+        <div class="review-group" aria-hidden="true">
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-1.jpg" alt="" loading="lazy">
+            <div>
+              <strong>王 小 满</strong>
+              <small>2027-02-18 · 红烧肉套餐</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p>下单 20 分钟就到了，红烧肉还烫嘴，米饭单独包装这一点特别加分。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-2.jpg" alt="" loading="lazy">
+            <div>
+              <strong>阿 Ken</strong>
+              <small>2027-02-26 · 黑椒牛仔骨</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p>牛仔骨是真的嫩，配上冰镇可乐直接封神，已经回购第 7 次了。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-3.jpg" alt="" loading="lazy">
+            <div>
+              <strong>陈 默</strong>
+              <small>2027-03-03 · 深夜加班餐</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+          </div>
+          <p>加班到十一点还能点到热菜，骑手小哥一路小跑，汤一滴没洒。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-4.jpg" alt="" loading="lazy">
+            <div>
+              <strong>林 女 士</strong>
+              <small>2027-03-11 · 手作黄油酥饼</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p>酥饼给娃当早餐刚好，黄油味很足但不腻，复烤两分钟像刚出炉。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-5.jpg" alt="" loading="lazy">
+            <div>
+              <strong>赵 一 鸣</strong>
+              <small>2027-03-19 · 蒜蓉时蔬</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p>后厨直播能看到炒菜全过程，油盐用量都看得见，吃着特别放心。</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__head">
+            <img class="review-card__avatar" src="images/avatar-6.jpg" alt="" loading="lazy">
+            <div>
+              <strong>周 小 满</strong>
+              <small>2027-03-28 · 低卡轻食</small>
+            </div>
+            <span class="review-card__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+          </div>
+          <p>素菜火候刚好，没有多余油腻感，减脂期也能安心点一桌。</p>
+        </article>
+
+        </div>
+        <!-- 第二组结束 -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 K：门店环境画廊
+       动态效果：悬停图片放大 + 卡片上浮（文字固定显示在图片下方）
+       ================================================================== -->
+  <section class="section gallery" id="gallery">
+    <div class="site-shell">
+
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow"><i class="fa-solid fa-image" aria-hidden="true"></i>STORES</span>
+          <h2 class="section-title">60 家门店，一店一灶台</h2>
+          <p class="section-sub">2027 年新增 18 家直营店，全部支持堂食与外卖</p>
+        </div>
+        <a class="section-more" href="#join">查找附近门店 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="row g-3 g-lg-4">
+        <div class="col-6 col-lg-4">
+          <figure class="gallery-card reveal">
+            <div class="gallery-card__media">
+              <img src="images/store-1.jpg" alt="ELY 食刻门店用餐区" loading="lazy">
+            </div>
+            <figcaption class="gallery-card__cap">
+              <span class="gallery-card__index">01</span>
+              <div class="gallery-card__text">
+                <strong>暖光用餐区</strong>
+                <small>静安旗舰店 · 2027 开业</small>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-lg-4">
+          <figure class="gallery-card reveal">
+            <div class="gallery-card__media">
+              <img src="images/store-2.jpg" alt="ELY 食刻门店走廊" loading="lazy">
+            </div>
+            <figcaption class="gallery-card__cap">
+              <span class="gallery-card__index">02</span>
+              <div class="gallery-card__text">
+                <strong>蓝调就餐走廊</strong>
+                <small>徐汇店 · 夜间不打烊</small>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-lg-4">
+          <figure class="gallery-card reveal">
+            <div class="gallery-card__media">
+              <img src="images/store-3.jpg" alt="ELY 食刻门店细节" loading="lazy">
+            </div>
+            <figcaption class="gallery-card__cap">
+              <span class="gallery-card__index">03</span>
+              <div class="gallery-card__text">
+                <strong>原木灶台区</strong>
+                <small>黄浦店 · 明档现炒</small>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-lg-4">
+          <figure class="gallery-card reveal">
+            <div class="gallery-card__media">
+              <img src="images/store-4.jpg" alt="ELY 食刻门店座位" loading="lazy">
+            </div>
+            <figcaption class="gallery-card__cap">
+              <span class="gallery-card__index">04</span>
+              <div class="gallery-card__text">
+                <strong>卡座与长桌</strong>
+                <small>长宁店 · 适合聚餐</small>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-lg-4">
+          <figure class="gallery-card reveal">
+            <div class="gallery-card__media">
+              <img src="images/store-5.jpg" alt="ELY 食刻门店灯光" loading="lazy">
+            </div>
+            <figcaption class="gallery-card__cap">
+              <span class="gallery-card__index">05</span>
+              <div class="gallery-card__text">
+                <strong>暖黄吊灯一角</strong>
+                <small>浦东店 · 2027-05 上新</small>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-lg-4">
+          <figure class="gallery-card reveal">
+            <div class="gallery-card__media">
+              <img src="images/store-6.jpg" alt="ELY 食刻门店外摆" loading="lazy">
+            </div>
+            <figcaption class="gallery-card__cap">
+              <span class="gallery-card__index">06</span>
+              <div class="gallery-card__text">
+                <strong>窗边小桌</strong>
+                <small>虹口店 · 落日最佳位</small>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 L：下单 CTA（渐变流动 + 悬浮优惠券）
+       ================================================================== -->
+  <section class="section cta" id="join">
+    <div class="site-shell">
+      <div class="cta__box reveal">
+        <!-- L-1 背景光斑（持续漂移） -->
+        <span class="cta__blob cta__blob--one" aria-hidden="true"></span>
+        <span class="cta__blob cta__blob--two" aria-hidden="true"></span>
+
+        <div class="cta__text">
+          <span class="eyebrow eyebrow--light"><i class="fa-solid fa-bolt" aria-hidden="true"></i>2027 春季活动</span>
+          <h2 class="cta__title">今晚不做饭<br>让锅气自己上门</h2>
+          <p class="cta__desc">注册即领 20 元新人券，登录后自动匹配最近门店，最快 2027-03-01 当日首单送达。</p>
+          <div class="cta__actions">
+            <a class="btn btn-gold btn-lg" href="#top"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> 立即注册</a>
+            <a class="btn btn-outline-light btn-lg" href="#hot-dishes"><i class="fa-solid fa-utensils" aria-hidden="true"></i> 先看看菜单</a>
+          </div>
+        </div>
+
+        <!-- L-2 优惠券卡片 -->
+        <div class="cta__coupon">
+          <span class="cta__coupon-top">NEW USER · 2027 SPRING</span>
+          <span class="cta__coupon-price"><em>¥</em>20</span>
+          <span class="cta__coupon-note">新客立减 · 无门槛</span>
+          <span class="cta__coupon-code">CODE：ELY2027</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 M：页面底部厨师团队
+       说明：横向小卡展示四位师傅，圆形头像 + 姓名 + 岗位
+       动态效果：悬停头像放大、金色光环旋转、卡片上浮
+       ================================================================== -->
+  <section class="section chef-strip" id="chefs-bottom">
+    <div class="site-shell">
+
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow"><i class="fa-solid fa-user-chef" aria-hidden="true"></i>CHEFS</span>
+          <h2 class="section-title">灶台后的 6 位师傅</h2>
+          <p class="section-sub">2027 季度考核全部通过，招牌菜由他们亲手掌勺</p>
+        </div>
+        <a class="section-more" href="#chefs">查看完整团队 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="row row-cols-2 g-3 g-lg-4 g-xl-5">
+
+        <!-- M-1 厨师小卡：陈志明 -->
+        <div class="col">
+          <article class="chef-mini reveal">
+            <div class="chef-mini__ring">
+              <img src="images/chef-1.webp" alt="行政总厨 陈志明" loading="lazy">
+            </div>
+            <div class="chef-mini__info">
+              <strong>陈 志 明</strong>
+              <small>行政总厨 · 粤菜</small>
+            </div>
+            <span class="chef-mini__icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+          </article>
+        </div>
+
+        <!-- M-2 厨师小卡：林子川 -->
+        <div class="col">
+          <article class="chef-mini reveal">
+            <div class="chef-mini__ring">
+              <img src="images/chef-2.jpg" alt="川菜主厨 林子川" loading="lazy">
+            </div>
+            <div class="chef-mini__info">
+              <strong>林 子 川</strong>
+              <small>川菜主厨 · 热炒</small>
+            </div>
+            <span class="chef-mini__icon"><i class="fa-solid fa-pepper-hot" aria-hidden="true"></i></span>
+          </article>
+        </div>
+
+        <!-- M-3 厨师小卡：周若兰 -->
+        <div class="col">
+          <article class="chef-mini reveal">
+            <div class="chef-mini__ring">
+              <img src="images/chef-3.jpg" alt="面点主厨 周若兰" loading="lazy">
+            </div>
+            <div class="chef-mini__info">
+              <strong>周 若 兰</strong>
+              <small>面点主厨 · 主食</small>
+            </div>
+            <span class="chef-mini__icon"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i></span>
+          </article>
+        </div>
+
+        <!-- M-4 厨师小卡：苏叶 -->
+        <div class="col">
+          <article class="chef-mini reveal">
+            <div class="chef-mini__ring">
+              <img src="images/chef-4.jpg" alt="凉菜总监 苏叶" loading="lazy" class="chef-img--cover-left">
+            </div>
+            <div class="chef-mini__info">
+              <strong>苏 叶</strong>
+              <small>凉菜总监 · 前菜</small>
+            </div>
+            <span class="chef-mini__icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+          </article>
+        </div>
+
+        <!-- M-5 厨师小卡：何家明 -->
+        <div class="col">
+          <article class="chef-mini reveal">
+            <div class="chef-mini__ring">
+              <img src="images/chef-5.jpg" alt="烧腊主厨 何家明" loading="lazy" class="chef-img--cover-fill">
+            </div>
+            <div class="chef-mini__info">
+              <strong>何 家 明</strong>
+              <small>烧腊主厨 · 明档</small>
+            </div>
+            <span class="chef-mini__icon"><i class="fa-solid fa-fire" aria-hidden="true"></i></span>
+          </article>
+        </div>
+
+        <!-- M-6 厨师小卡：方雅琴 -->
+        <div class="col">
+          <article class="chef-mini reveal">
+            <div class="chef-mini__ring">
+              <img src="images/chef-6.png" alt="汤品主厨 方雅琴" loading="lazy">
+            </div>
+            <div class="chef-mini__info">
+              <strong>方 雅 琴</strong>
+              <small>汤品主厨 · 炖汤</small>
+            </div>
+            <span class="chef-mini__icon"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></span>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 N：留言反馈
+       说明：纯 CSS 表单，提交后回到本区块，不使用 JS
+       ================================================================== -->
+  <section class="section feedback" id="feedback">
+    <div class="site-shell">
+      <div class="feedback__box reveal">
+
+        <div class="feedback__text">
+          <span class="eyebrow"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>FEEDBACK</span>
+          <h2 class="feedback__title">想听你说</h2>
+          <p class="feedback__desc">
+            菜品口味、配送速度、门店体验……留下你的建议，
+            2027 年内我们会有专人在 24 小时内回复。
+          </p>
+          <ul class="feedback__meta">
+            <li><i class="fa-solid fa-phone" aria-hidden="true"></i>400-888-2027</li>
+            <li><i class="fa-solid fa-clock" aria-hidden="true"></i>每日 10:00 - 22:00</li>
+          </ul>
+        </div>
+
+        <form class="feedback__form" action="#feedback">
+          <div class="feedback__field">
+            <label for="fbName">称呼</label>
+            <input id="fbName" name="name" type="text" placeholder="怎么称呼你" required>
+          </div>
+          <div class="feedback__field">
+            <label for="fbPhone">联系电话</label>
+            <input id="fbPhone" name="phone" type="tel" placeholder="方便我们回电">
+          </div>
+          <div class="feedback__field feedback__field--full">
+            <label for="fbMsg">留言内容</label>
+            <textarea id="fbMsg" name="message" rows="3" placeholder="写下你的建议……" required></textarea>
+          </div>
+          <button class="btn btn-chili feedback__submit" type="submit">
+            提交反馈 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       区块 O：页脚
+       ================================================================== -->
+  <footer class="site-footer">
+    <div class="site-shell">
+      <div class="row g-4 footer__top">
+
+        <div class="col-12 col-lg-4">
+          <a class="brand brand--footer" href="#top">
+            <span class="brand__mark"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i></span>
+            <span class="brand__text">
+              <strong class="brand__name">ELY 食刻</strong>
+              <small class="brand__slogan">现炒锅气 · 12 分钟到家</small>
+            </span>
+          </a>
+          <p class="footer__desc">明火现炒、拒绝预制。60 家直营门店守住每一口锅气，2027 年继续把热菜送到你门口。</p>
+          <div class="footer__social">
+            <a href="#top" aria-label="微信"><i class="fa-brands fa-weixin" aria-hidden="true"></i></a>
+            <a href="#top" aria-label="微博"><i class="fa-brands fa-weibo" aria-hidden="true"></i></a>
+            <a href="#top" aria-label="哔哩哔哩"><i class="fa-brands fa-bilibili" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h4 class="footer__title">点餐</h4>
+          <ul class="footer__list">
+            <li><a href="#hot-dishes">今日热销</a></li>
+            <li><a href="#categories">分类点餐</a></li>
+            <li><a href="#kitchen">后厨直播</a></li>
+            <li><a href="#gallery">门店环境</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h4 class="footer__title">帮助</h4>
+          <ul class="footer__list">
+            <li><a href="#join">配送范围</a></li>
+            <li><a href="#join">超时赔付</a></li>
+            <li><a href="#join">退款说明</a></li>
+            <li><a href="#reviews">食客评价</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-lg-3">
+          <h4 class="footer__title">联系我们</h4>
+          <ul class="footer__list footer__list--contact">
+            <li><i class="fa-solid fa-phone" aria-hidden="true"></i>400-888-2027</li>
+            <li><i class="fa-solid fa-envelope" aria-hidden="true"></i>hello@ely-eats.com</li>
+            <li><i class="fa-solid fa-clock" aria-hidden="true"></i>每日 10:00 - 22:00</li>
+            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i>上海市静安区食刻路 27 号</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2027 ELY 食刻 · 保留所有权利</span>
+        <span class="footer__bottom-links">
+          <a href="#top">用户协议</a>
+          <a href="#top">隐私政策</a>
+          <a href="#top">食品经营许可证</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
